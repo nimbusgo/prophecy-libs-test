@@ -26,7 +26,7 @@ templates:
     mode: batch
     language: scala
     createdAt: '2023-03-21 21:56:38'
-    modifiedAt: '2023-03-22 16:37:08'
+    modifiedAt: '2023-03-22 16:41:57'
     datasets:
       inputs: []
       outputs: []
