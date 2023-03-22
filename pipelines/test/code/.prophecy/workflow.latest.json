@@ -65,7 +65,7 @@
         "isCustomOutputSchema" : true
       },
       "properties" : {
-        "script" : "val x = 1",
+        "script" : "val x = 1\nval y = 2",
         "scriptMethodHeader" : "def apply(spark: SparkSession): Unit = {",
         "scriptMethodFooter" : "    \n}"
       }
