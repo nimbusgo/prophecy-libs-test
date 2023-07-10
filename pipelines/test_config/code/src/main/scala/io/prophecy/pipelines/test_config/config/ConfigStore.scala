@@ -1,6 +1,6 @@
-package io.prophecy.pipelines.test.config
+package io.prophecy.pipelines.test_config.config
 
-import io.prophecy.pipelines.test.config.Context
+import io.prophecy.pipelines.test_config.config.Context
 import pureconfig.ConfigReader.Result
 import pureconfig._
 import pureconfig.generic.ProductHint
@@ -17,5 +17,8 @@ object ConfigurationFactoryImpl extends ConfigurationFactory[Config] {
       ProductHint[Config](ConfigFieldMapping(CamelCase, CamelCase))
     fileConfig.load[Config]
   }
+
+  def getConfig(args: Array[String]) =
+    fromCLI(args)
 
 }

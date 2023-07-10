@@ -15,21 +15,10 @@ pipeline:
     		<scalaBaseVersion>@(buildMetadata.platform.scalaBaseVersion)</scalaBaseVersion>
     		<scalaVersion>@(buildMetadata.platform.scalaVersion)</scalaVersion>
     		<sparkVersion>@(buildMetadata.platform.sparkVersion)</sparkVersion>
-            <prophecyLibsVersion>7.0.12-fixdeps-SNAPSHOT</prophecyLibsVersion>
+            <prophecyLibsVersion>@(buildMetadata.platform.prophecyLibsVersion)</prophecyLibsVersion>
     	</properties>
     	<repositories>
-          @Xml(dependencies.mvnRepositories)
-          <repository>
-          <id>sonatype-snapshots-s01</id>
-          <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-          <layout>default</layout>
-            <releases>
-              <enabled>false</enabled>
-            </releases>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-        </repository>
+          @Xml(dependencies.mvnRepositories) 
     	</repositories>
     	<pluginRepositories>
     		<pluginRepository>
@@ -78,6 +67,12 @@ pipeline:
     					<artifactId>snappy-java</artifactId>
     				</exclusion>
     			</exclusions>
+    		</dependency>
+    		<dependency>
+    			<groupId>org.xerial.snappy</groupId>
+    			<artifactId>snappy-java</artifactId>
+    			<version>1.0.5</version>
+    			<scope>provided</scope>
     		</dependency>
     		<dependency>
     			<groupId>org.json4s</groupId>
@@ -206,4 +201,3 @@ pipeline:
             </plugins>
         </build>
     </project>
-    

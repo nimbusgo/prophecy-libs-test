@@ -1,10 +1,8 @@
 package io.prophecy.pipelines.test.graph
 
 import io.prophecy.libs._
-import io.prophecy.pipelines.test.config.Context
 import io.prophecy.pipelines.test.udfs.UDFs._
-import io.prophecy.pipelines.test.udfs._
-import io.prophecy.pipelines.test.udfs.PipelineInitCode._
+import io.prophecy.pipelines.test.config.Context
 import org.apache.spark._
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
@@ -12,12 +10,9 @@ import org.apache.spark.sql.types._
 import org.apache.spark.sql.expressions._
 import java.time._
 
-object Script_0 {
-  def apply(context: Context): Unit = {
-    val spark = context.spark
-    val Config = context.config
-    val x = 1
-    val y = 2
-  }
+object Reformat_1 {
+
+  def apply(context: Context, in: DataFrame): DataFrame =
+    in.select(lit("abc").as("str_col"))
 
 }

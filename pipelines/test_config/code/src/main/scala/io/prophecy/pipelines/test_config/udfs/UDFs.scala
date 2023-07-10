@@ -1,4 +1,4 @@
-package io.prophecy.pipelines.test.udfs
+package io.prophecy.pipelines.test_config.udfs
 
 import _root_.io.prophecy.abinitio.ScalaFunctions._
 import _root_.io.prophecy.libs._

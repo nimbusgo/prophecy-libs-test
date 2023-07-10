@@ -3,38 +3,82 @@ description: ''
 version: 0.0.1
 author: nimbus@prophecy.io
 language: scala
-buildSystem: maven
+buildSystem: ''
+buildSystemDetails:
+  artefactID: prophecylibstest
+  parentArtefactID: prophecy_nimbus_team
+  buildSystem: maven
+  author: null
+  createdAt: '2023-03-27 18:34:30'
 pipelines:
   pipelines/test:
     name: test
     description: ''
     author: nimbus@prophecy.io
     mode: batch
+    artefactID: ''
     language: scala
     createdAt: '2023-03-21 21:56:47'
-    modifiedAt: '2023-03-22 16:43:14'
+    datasets:
+      inputs:
+      - datasets/dummy_text
+      outputs: []
+    subgraphs: []
+    dependencies: {}
+  pipelines/test_config:
+    name: test_config
+    description: ''
+    author: nimbus@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: scala
+    createdAt: '2023-05-04 22:17:49'
     datasets:
       inputs: []
       outputs: []
+    subgraphs: []
     dependencies: {}
-datasets: {}
+datasets:
+  datasets/dummy_text:
+    name: dummy_text
+    description: ''
+    author: nimbus@prophecy.io
+    createdAt: '2023-03-27 18:35:57'
+    mode: batch
+    physicalDatasets:
+      demos:
+        fabricId: 1174
+        datasetType: File
+        description: ''
+        author: nimbus@prophecy.io
+        createdAt: '2023-03-27 18:35:57'
 templates:
   templates/maven:
     name: maven
     description: null
     author: nimbus@prophecy.io
+    version: v1
     mode: batch
     language: scala
-    createdAt: '2023-03-21 21:56:38'
-    modifiedAt: '2023-03-22 16:41:57'
+    createdAt: '2023-07-10 20:09:37'
     datasets:
       inputs: []
       outputs: []
     dependencies: {}
 jobs: {}
-libraries: []
+functions:
+  author: null
+  createdAt: '2023-03-27 18:34:30'
+  gems: {}
+  udfs: {}
+  udafs: {}
+  expressions: {}
 subgraphs: {}
 sqlModels: {}
+sqlMacros: {}
+sqlSeeds: {}
+sqlSources: {}
+sqlUnreferencedSources: {}
 sqlPipeline: null
 dependencies: []
 projectDependencies: {}

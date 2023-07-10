@@ -1,7 +1,6 @@
 package io.prophecy.pipelines.test
 
 import io.prophecy.libs._
-import io.prophecy.pipelines.test.config.ConfigStore._
 import io.prophecy.pipelines.test.config.Context
 import io.prophecy.pipelines.test.config._
 import io.prophecy.pipelines.test.udfs.UDFs._
@@ -16,8 +15,12 @@ import java.time._
 
 object Main {
 
-  def apply(context: Context): Unit =
+  def apply(context: Context): Unit = {
     Script_0(context)
+    val df_dummy_text = dummy_text(context)
+    val df_Reformat_1 = Reformat_1(context, df_dummy_text)
+    val df_Reformat_2 = Reformat_2(context, df_Reformat_1)
+  }
 
   def main(args: Array[String]): Unit = {
     val config = ConfigurationFactoryImpl.fromCLI(args)
@@ -31,7 +34,8 @@ object Main {
       .newSession()
     val context = Context(spark, config)
     spark.conf.set("prophecy.metadata.pipeline.uri", "pipelines/test")
-    MetricsCollector.start(spark,                    "pipelines/test")
+    registerUDFs(spark)
+    MetricsCollector.start(spark, "pipelines/test")
     apply(context)
     MetricsCollector.end(spark)
   }

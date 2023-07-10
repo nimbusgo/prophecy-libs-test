@@ -7,7 +7,9 @@
     "mode" : "batch",
     "udfs" : {
       "language" : "scala",
-      "udfs" : [ ]
+      "udfs" : [ ],
+      "functionPackageName" : "prophecy_nimbus_team.prophecylibstest.functions",
+      "sharedFunctionPackageNames" : [ ]
     },
     "udafs" : {
       "language" : "scala",
@@ -33,6 +35,7 @@
     "codeMode" : "sparse",
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ ],
     "isImported" : false,
     "interimMode" : "Full",
     "interimModeEnabled" : true,
@@ -41,9 +44,22 @@
       "enabled" : false,
       "value" : 1000
     },
-    "topLevelPackage" : "io.prophecy.pipelines.test"
+    "topLevelPackage" : "io.prophecy.pipelines.test",
+    "configurationVersion" : "v1"
   },
-  "connections" : [ ],
+  "connections" : [ {
+    "id" : "rZDVNkE8FUvUDCSqEl35e",
+    "source" : "ibQuaPI7HWtj20txBldD8$$3myd9v8RynL2SEv6mxR9c",
+    "sourcePort" : "YCV4oty4pyaY11x7W9a4-$$q8pJRJirH3sP8Nllh59tQ",
+    "target" : "bQ4DR_UX80CCwxypoKDZX$$gaxxIuFSxVWP3D9oJpunn",
+    "targetPort" : "psJbc9s37PMDPlfvyEQPq$$8meL34H70mq7MqueJgrH1"
+  }, {
+    "id" : "8x1CNIC6grqYGJqwZX3H-$$u5bw5HNLkMCNFF1gWDZpd",
+    "source" : "bQ4DR_UX80CCwxypoKDZX$$gaxxIuFSxVWP3D9oJpunn",
+    "sourcePort" : "Qicn-zUjcyMocYZ1gaCS9$$w3aefte6hWzngC6_Igj9u",
+    "target" : "lyGuoX4SF4ATw7xYFZEbb$$Tmy3CoWrfV_sJt4Cz-rEP",
+    "targetPort" : "20xuBo5O-KabiHX0dfPwm$$oezBZL3rDTQk5Gklajvr3"
+  } ],
   "processes" : {
     "or1wqGNQtFix7Ja5mCth7$$o84vuc9xcAjquwiJ52rda" : {
       "id" : "or1wqGNQtFix7Ja5mCth7$$o84vuc9xcAjquwiJ52rda",
@@ -51,8 +67,8 @@
       "metadata" : {
         "label" : "Script_0",
         "slug" : "Script_0",
-        "x" : 140,
-        "y" : 160,
+        "x" : 160,
+        "y" : 140,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -69,6 +85,141 @@
         "scriptMethodHeader" : "def apply(spark: SparkSession): Unit = {",
         "scriptMethodFooter" : "    \n}"
       }
+    },
+    "ibQuaPI7HWtj20txBldD8$$3myd9v8RynL2SEv6mxR9c" : {
+      "id" : "ibQuaPI7HWtj20txBldD8$$3myd9v8RynL2SEv6mxR9c",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "dummy_text",
+        "slug" : "dummy_text",
+        "x" : -600,
+        "y" : -40,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "YCV4oty4pyaY11x7W9a4-$$q8pJRJirH3sP8Nllh59tQ",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/dummy_text"
+      }
+    },
+    "bQ4DR_UX80CCwxypoKDZX$$gaxxIuFSxVWP3D9oJpunn" : {
+      "id" : "bQ4DR_UX80CCwxypoKDZX$$gaxxIuFSxVWP3D9oJpunn",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_1",
+        "slug" : "Reformat_1",
+        "x" : -420,
+        "y" : -40,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "psJbc9s37PMDPlfvyEQPq$$8meL34H70mq7MqueJgrH1",
+          "slug" : "in",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "value",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "Qicn-zUjcyMocYZ1gaCS9$$w3aefte6hWzngC6_Igj9u",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "str_col",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "\"abc\""
+          },
+          "description" : ""
+        } ]
+      }
+    },
+    "lyGuoX4SF4ATw7xYFZEbb$$Tmy3CoWrfV_sJt4Cz-rEP" : {
+      "id" : "lyGuoX4SF4ATw7xYFZEbb$$Tmy3CoWrfV_sJt4Cz-rEP",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_2",
+        "slug" : "Reformat_2",
+        "x" : -160,
+        "y" : -40,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "20xuBo5O-KabiHX0dfPwm$$oezBZL3rDTQk5Gklajvr3",
+          "slug" : "in",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "str_col",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "le-fJLylWbE4OSkgpF4mW$$B27HIa54YpRTV9lXq-1GO",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ "20xuBo5O-KabiHX0dfPwm$$oezBZL3rDTQk5Gklajvr3##str_col" ],
+        "expressions" : [ {
+          "target" : "test",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "expr(\"string_char(str_col, 1)\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "other_test",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "string_char(str_col, 1)"
+          },
+          "description" : ""
+        } ]
+      }
     }
   },
   "ports" : {
@@ -76,5 +227,22 @@
     "outputs" : [ ],
     "selectedInputFields" : [ ],
     "isCustomOutputSchema" : false
-  }
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow.processes.lyGuoX4SF4ATw7xYFZEbb$$Tmy3CoWrfV_sJt4Cz-rEP",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "type mismatch;\n found   : org.apache.spark.sql.Column\n required: Int\n         object Reformat_2 { def apply(context: Context, in: DataFrame): DataFrame = in.select(expr(\"string_char(str_col, 1)\").as(\"test\"), string_char(col(\"str_col\"), lit(1)).as(\"other_test\")) }\n                                                                                                                                                                          ^",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  } ]
 }
